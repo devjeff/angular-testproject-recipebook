@@ -7,10 +7,9 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { CommonModule } from "@angular/common";
 import { AuthGuard } from "../auth/auth.guard";
 import { RecipeResolverService } from "./service/recipe-resolver.service";
-import { DropdownDirective } from "../shared/dropdown.directive";
+import { SharedModule } from "../shared/shared.module";
 
 const appRoutes: Routes = [
     {
@@ -32,15 +31,11 @@ const appRoutes: Routes = [
         RecipesComponent,
         RecipeStartComponent,
         RecipeEditComponent,
-        DropdownDirective,
     ],
     imports: [
         RouterModule.forChild(appRoutes),
-        CommonModule,
+        SharedModule,
         ReactiveFormsModule,
-    ], 
-    exports: [
-        DropdownDirective
     ]
 })
 export class RecipesModule {
